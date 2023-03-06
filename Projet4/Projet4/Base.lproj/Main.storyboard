@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,19 +11,19 @@
         <!--View Controller-->
         <scene sceneID="iVW-oU-QIj">
             <objects>
-                <viewController id="OCl-a2-Q43" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OCl-a2-Q43" customClass="ViewController" customModule="Projet4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6lf-ZG-U6x">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaQ-Oc-J5b">
-                                <rect key="frame" x="0.0" y="83" width="414" height="36"/>
+                                <rect key="frame" x="0.0" y="15" width="667" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PAW-nK-lcj">
-                                <rect key="frame" x="57" y="217" width="300" height="300"/>
+                                <rect key="frame" x="183.5" y="61" width="300" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dq7-KZ-cvu" userLabel="View Picture">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -39,14 +39,14 @@
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="Plus"/>
+                                                                <state key="normal" image="Plus.png"/>
                                                             </button>
                                                             <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onq-0K-aqv">
                                                                 <rect key="frame" x="142.5" y="0.0" width="127.5" height="127.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="Plus"/>
+                                                                <state key="normal" image="Plus.png"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -58,14 +58,14 @@
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="Plus"/>
+                                                                <state key="normal" image="Plus.png"/>
                                                             </button>
                                                             <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PL-3A-Gph">
                                                                 <rect key="frame" x="142.5" y="0.0" width="127.5" height="127.5"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="Plus"/>
+                                                                <state key="normal" image="Plus.png"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -86,29 +86,29 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="1Sb-fw-d3E"/>
-                                                <exclude reference="91K-WL-2m1"/>
-                                                <exclude reference="psN-Ye-LZz"/>
                                                 <exclude reference="5bA-ov-skE"/>
-                                                <exclude reference="ReT-VA-pHK"/>
+                                                <exclude reference="91K-WL-2m1"/>
                                                 <exclude reference="CxO-ov-p8q"/>
-                                                <exclude reference="lG0-36-wDX"/>
+                                                <exclude reference="ReT-VA-pHK"/>
                                                 <exclude reference="kQ6-1C-nKr"/>
+                                                <exclude reference="lG0-36-wDX"/>
+                                                <exclude reference="psN-Ye-LZz"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact">
                                             <mask key="constraints">
                                                 <include reference="1Sb-fw-d3E"/>
-                                                <include reference="psN-Ye-LZz"/>
-                                                <include reference="lG0-36-wDX"/>
                                                 <include reference="kQ6-1C-nKr"/>
+                                                <include reference="lG0-36-wDX"/>
+                                                <include reference="psN-Ye-LZz"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="91K-WL-2m1"/>
                                                 <include reference="5bA-ov-skE"/>
-                                                <include reference="ReT-VA-pHK"/>
+                                                <include reference="91K-WL-2m1"/>
                                                 <include reference="CxO-ov-p8q"/>
+                                                <include reference="ReT-VA-pHK"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -121,40 +121,40 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="QyC-fC-fmX"/>
-                                        <exclude reference="ZA1-D4-Jh4"/>
                                         <exclude reference="4Tg-Je-ETl"/>
                                         <exclude reference="9Bb-JM-rb7"/>
+                                        <exclude reference="QyC-fC-fmX"/>
+                                        <exclude reference="ZA1-D4-Jh4"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
-                                        <include reference="ZA1-D4-Jh4"/>
                                         <include reference="4Tg-Je-ETl"/>
+                                        <include reference="ZA1-D4-Jh4"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="QyC-fC-fmX"/>
                                         <include reference="9Bb-JM-rb7"/>
+                                        <include reference="QyC-fC-fmX"/>
                                     </mask>
                                 </variation>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY8-jv-JqI">
-                                <rect key="frame" x="118" y="161" width="178" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY8-jv-JqI">
+                                <rect key="frame" x="-9.5" y="174.5" width="183" height="26"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1v-Ud-EfU">
-                                <rect key="frame" x="157" y="129" width="100" height="22"/>
+                                <rect key="frame" x="93.5" y="147.5" width="50" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="LHB-Ug-pgZ"/>
                                     <constraint firstAttribute="width" constant="100" id="y9h-6m-leE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="Arrow Up"/>
+                                <state key="normal" image="Arrow Left.png"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="LHB-Ug-pgZ"/>
@@ -173,7 +173,7 @@
                                 </variation>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Jpi-py-b6g">
-                                <rect key="frame" x="56.5" y="747" width="301" height="80"/>
+                                <rect key="frame" x="552" y="61" width="80" height="302"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="F3M-9T-wJi"/>
@@ -233,27 +233,27 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="FjT-Rc-aRw"/>
-                                <exclude reference="gMe-6l-ccB"/>
-                                <exclude reference="aa1-yY-FrS"/>
                                 <exclude reference="Ag6-8T-W6l"/>
-                                <exclude reference="WA6-cV-joL"/>
+                                <exclude reference="FjT-Rc-aRw"/>
+                                <exclude reference="aa1-yY-FrS"/>
+                                <exclude reference="gMe-6l-ccB"/>
                                 <exclude reference="B7l-VG-JLn"/>
+                                <exclude reference="WA6-cV-joL"/>
                                 <exclude reference="b9h-by-lX4"/>
-                                <exclude reference="wae-f3-BqF"/>
                                 <exclude reference="d9w-6p-BrK"/>
                                 <exclude reference="q4y-pc-rhZ"/>
-                                <exclude reference="aqx-mC-dbr"/>
-                                <exclude reference="TDS-Vc-yHm"/>
-                                <exclude reference="GxK-Fb-vvL"/>
-                                <exclude reference="Yn8-iV-99p"/>
-                                <exclude reference="xVm-Lb-aQC"/>
+                                <exclude reference="wae-f3-BqF"/>
                                 <exclude reference="oP5-ck-zE6"/>
-                                <exclude reference="JHe-ta-yO1"/>
+                                <exclude reference="xVm-Lb-aQC"/>
+                                <exclude reference="GxK-Fb-vvL"/>
+                                <exclude reference="TDS-Vc-yHm"/>
+                                <exclude reference="Yn8-iV-99p"/>
+                                <exclude reference="aqx-mC-dbr"/>
                                 <exclude reference="3Gc-KP-0Pn"/>
-                                <exclude reference="c0t-9D-AP7"/>
                                 <exclude reference="D8l-OH-YhL"/>
+                                <exclude reference="JHe-ta-yO1"/>
                                 <exclude reference="Uwk-YZ-PE8"/>
+                                <exclude reference="c0t-9D-AP7"/>
                                 <exclude reference="xch-2e-hac"/>
                                 <exclude reference="8vl-NQ-cDd"/>
                                 <exclude reference="Zi6-e8-qHH"/>
@@ -261,15 +261,15 @@
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <include reference="aa1-yY-FrS"/>
                                 <include reference="Ag6-8T-W6l"/>
+                                <include reference="aa1-yY-FrS"/>
                                 <include reference="B7l-VG-JLn"/>
                                 <include reference="b9h-by-lX4"/>
                                 <include reference="wae-f3-BqF"/>
-                                <include reference="TDS-Vc-yHm"/>
                                 <include reference="GxK-Fb-vvL"/>
-                                <include reference="JHe-ta-yO1"/>
+                                <include reference="TDS-Vc-yHm"/>
                                 <include reference="3Gc-KP-0Pn"/>
+                                <include reference="JHe-ta-yO1"/>
                                 <include reference="c0t-9D-AP7"/>
                                 <include reference="xch-2e-hac"/>
                                 <include reference="8vl-NQ-cDd"/>
@@ -282,10 +282,10 @@
                                 <include reference="WA6-cV-joL"/>
                                 <include reference="d9w-6p-BrK"/>
                                 <include reference="q4y-pc-rhZ"/>
-                                <include reference="aqx-mC-dbr"/>
-                                <include reference="Yn8-iV-99p"/>
-                                <include reference="xVm-Lb-aQC"/>
                                 <include reference="oP5-ck-zE6"/>
+                                <include reference="xVm-Lb-aQC"/>
+                                <include reference="Yn8-iV-99p"/>
+                                <include reference="aqx-mC-dbr"/>
                                 <include reference="D8l-OH-YhL"/>
                                 <include reference="Uwk-YZ-PE8"/>
                                 <include reference="Zi6-e8-qHH"/>
@@ -299,8 +299,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow Up" width="4.5" height="3.5"/>
-        <image name="Plus" width="13.5" height="13.5"/>
+        <image name="Arrow Left.png" width="3.5" height="4.5"/>
+        <image name="Plus.png" width="13.5" height="13.5"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
