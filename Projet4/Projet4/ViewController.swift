@@ -24,13 +24,16 @@ class ViewController: UIViewController {
         
         let layout = UIView()
         currentView.addSubview(layout)
-
         layout.translatesAutoresizingMaskIntoConstraints = false
         layout.leadingAnchor.constraint(equalTo: currentView.leadingAnchor).isActive = true
         layout.trailingAnchor.constraint(equalTo: currentView.trailingAnchor).isActive = true
         layout.topAnchor.constraint(equalTo: currentView.topAnchor).isActive = true
         layout.bottomAnchor.constraint(equalTo: currentView.bottomAnchor).isActive = true
-        layout.backgroundColor = .blue
-        
+        if let mycolor = UIColor(named: "colo") {
+            layout.backgroundColor = mycolor
+        }
+        else{
+            print("colleur non trouver")
+        }
     }
 }

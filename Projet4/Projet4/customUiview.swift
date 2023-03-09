@@ -8,15 +8,22 @@
 import UIKit
 
 class customUiview: UIView {
+    
 
-    func ontap() -> (){
-        
+    enum state  {
+    
+        case pressed, unpressed
+    }
+    struct Button {
+    
+        var title : String
+        var position : CGPoint
+        var size : CGSize
+        var state : state
+    
     }
     
-    enum layout
-    {
-        case layout1,layout2,layout3
-    }
-
+  
+    
     
 }
