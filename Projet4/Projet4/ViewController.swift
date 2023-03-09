@@ -11,17 +11,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createView()
+    
     }
     @IBOutlet weak var currentView: UIView!
-
+    
+    @IBAction func callBtn(_ sender: Any) {
+        createView()
+    }
+    
     func createView()
     {
-        let rect = CGRect(x: 62, y: 220, width: 300, height: 300)
-        let layout = UIView(frame: rect)
-        layout.translatesAutoresizingMaskIntoConstraints = false
-        layout.backgroundColor = .blue
+        
+        let layout = UIView()
         currentView.addSubview(layout)
-        let constrain = currentView.constraints
+
+        layout.translatesAutoresizingMaskIntoConstraints = false
+        layout.leadingAnchor.constraint(equalTo: currentView.leadingAnchor).isActive = true
+        layout.trailingAnchor.constraint(equalTo: currentView.trailingAnchor).isActive = true
+        layout.topAnchor.constraint(equalTo: currentView.topAnchor).isActive = true
+        layout.bottomAnchor.constraint(equalTo: currentView.bottomAnchor).isActive = true
+        layout.backgroundColor = .blue
+        
     }
 }
