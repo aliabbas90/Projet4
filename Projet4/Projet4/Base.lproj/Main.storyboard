@@ -174,7 +174,7 @@
                                     </mask>
                                 </variation>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jpi-py-b6g">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jpi-py-b6g">
                                 <rect key="frame" x="46" y="703" width="301" height="80"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
@@ -245,12 +245,12 @@
                                 <exclude reference="d9w-6p-BrK"/>
                                 <exclude reference="q4y-pc-rhZ"/>
                                 <exclude reference="wae-f3-BqF"/>
+                                <exclude reference="oP5-ck-zE6"/>
+                                <exclude reference="xVm-Lb-aQC"/>
                                 <exclude reference="GxK-Fb-vvL"/>
                                 <exclude reference="TDS-Vc-yHm"/>
                                 <exclude reference="Yn8-iV-99p"/>
                                 <exclude reference="aqx-mC-dbr"/>
-                                <exclude reference="oP5-ck-zE6"/>
-                                <exclude reference="xVm-Lb-aQC"/>
                                 <exclude reference="3Gc-KP-0Pn"/>
                                 <exclude reference="D8l-OH-YhL"/>
                                 <exclude reference="JHe-ta-yO1"/>
@@ -284,10 +284,10 @@
                                 <include reference="WA6-cV-joL"/>
                                 <include reference="d9w-6p-BrK"/>
                                 <include reference="q4y-pc-rhZ"/>
-                                <include reference="Yn8-iV-99p"/>
-                                <include reference="aqx-mC-dbr"/>
                                 <include reference="oP5-ck-zE6"/>
                                 <include reference="xVm-Lb-aQC"/>
+                                <include reference="Yn8-iV-99p"/>
+                                <include reference="aqx-mC-dbr"/>
                                 <include reference="D8l-OH-YhL"/>
                                 <include reference="Uwk-YZ-PE8"/>
                                 <include reference="Zi6-e8-qHH"/>
@@ -295,6 +295,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="currentStackView" destination="Jpi-py-b6g" id="Idy-Sm-ARr"/>
                         <outlet property="currentView" destination="Dq7-KZ-cvu" id="nsi-FZ-aPs"/>
                     </connections>
                 </viewController>

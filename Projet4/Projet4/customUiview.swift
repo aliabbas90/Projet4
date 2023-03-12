@@ -7,23 +7,55 @@
 
 import UIKit
 
-class customUiview: UIView {
+class CustomUiview: UIView {
     
+    enum Status {
+        case active,unactive
+    }
+    
+    var image: UIImageView?
+    var isSelected : Bool = false {
+        didSet {
+            updateStatus()
+        }
+    }
+    
+    var callback: ((Status) -> Void)?
+    
+    func updateStatus() {
+        if isSelected {
+            callback?(.active)
+            let assetImage = UIImage(named: "Selected")
+            image = UIImageView(image: assetImage)
 
-    enum state  {
-    
-        case pressed, unpressed
-    }
-    struct Button {
-    
-        var title : String
-        var position : CGPoint
-        var size : CGSize
-        var state : state
-    
+        }
+        else {
+            callback?(.unactive)
+            
+        }
+        
     }
     
-  
+    
+    /*
+     func createView()
+     {
+     
+     let layout = UIView()
+     currentView.addSubview(layout)
+     layout.translatesAutoresizingMaskIntoConstraints = false
+     layout.leadingAnchor.constraint(equalTo: currentView.leadingAnchor).isActive = true
+     layout.trailingAnchor.constraint(equalTo: currentView.trailingAnchor).isActive = true
+     layout.topAnchor.constraint(equalTo: currentView.topAnchor).isActive = true
+     layout.bottomAnchor.constraint(equalTo: currentView.bottomAnchor).isActive = true
+     if let mycolor = UIColor(named: "colo") {
+     layout.backgroundColor = mycolor
+     }
+     else{
+     print("couleur non trouver")
+     }
+     */
+    
     
     
 }
