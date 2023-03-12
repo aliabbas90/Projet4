@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         }
         
     }
-    
+    /*
     func createView()
     {
         let layout = UIView()
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         layout.backgroundColor = UIColor(named: "colo")
         
     }
-    /*
+    */
     func createButton(imageName: String) -> UIButton {
         let button = UIButton(type: .system)
         let image = UIImage(named: imageName)
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }
-    */
+    
     @objc func buttonTapped(_ sender: UIButton) {
         customView.isSelected = true
         sender.isHidden = true

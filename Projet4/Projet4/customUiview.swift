@@ -12,8 +12,7 @@ class CustomUiview: UIView {
     enum Status {
         case active,unactive
     }
-    
-    var image: UIImageView?
+    var image:  UIImageView?
     var isSelected : Bool = false {
         didSet {
             updateStatus()
@@ -21,13 +20,12 @@ class CustomUiview: UIView {
     }
     
     var callback: ((Status) -> Void)?
-    
+
     func updateStatus() {
         if isSelected {
             callback?(.active)
             let assetImage = UIImage(named: "Selected")
             image = UIImageView(image: assetImage)
-
         }
         else {
             callback?(.unactive)
