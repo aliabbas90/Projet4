@@ -20,7 +20,7 @@ class CustomUiview: UIView {
     }
     
     var callback: ((Status) -> Void)?
-
+    
     func updateStatus() {
         if isSelected {
             callback?(.active)

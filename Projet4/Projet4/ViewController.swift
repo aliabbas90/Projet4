@@ -34,19 +34,19 @@ class ViewController: UIViewController {
         
     }
     /*
-    func createView()
-    {
-        let layout = UIView()
-        currentView.addSubview(layout)
-        layout.translatesAutoresizingMaskIntoConstraints = false
-        layout.leadingAnchor.constraint(equalTo: currentView.leadingAnchor).isActive = true
-        layout.trailingAnchor.constraint(equalTo: currentView.trailingAnchor).isActive = true
-        layout.topAnchor.constraint(equalTo: currentView.topAnchor).isActive = true
-        layout.bottomAnchor.constraint(equalTo: currentView.bottomAnchor).isActive = true
-        layout.backgroundColor = UIColor(named: "colo")
-        
-    }
-    */
+     func createView()
+     {
+     let layout = UIView()
+     currentView.addSubview(layout)
+     layout.translatesAutoresizingMaskIntoConstraints = false
+     layout.leadingAnchor.constraint(equalTo: currentView.leadingAnchor).isActive = true
+     layout.trailingAnchor.constraint(equalTo: currentView.trailingAnchor).isActive = true
+     layout.topAnchor.constraint(equalTo: currentView.topAnchor).isActive = true
+     layout.bottomAnchor.constraint(equalTo: currentView.bottomAnchor).isActive = true
+     layout.backgroundColor = UIColor(named: "colo")
+     
+     }
+     */
     func createButton(imageName: String) -> UIButton {
         let button = UIButton(type: .system)
         let image = UIImage(named: imageName)
@@ -61,11 +61,17 @@ class ViewController: UIViewController {
     
     @objc func buttonTapped(_ sender: UIButton) {
         customView.isSelected = true
-        sender.isHidden = true
+        let selectedImage = customView.image
+        // retrieve the position of button called
         let buttonPosition = sender.convert(sender.bounds.origin, to: currentView)
-        let index = currentStackView.arrangedSubviews.firstIndex(of: sender)
         customView.image?.frame.origin = buttonPosition
-        currentView.addSubview(customView.image!)
+        currentStackView.addArrangedSubview(customView.image!)
+        selectedImage?.translatesAutoresizingMaskIntoConstraints = false
+        selectedImage?.leadingAnchor.constraint(equalTo: sender.leadingAnchor).isActive = true
+        selectedImage?.trailingAnchor.constraint(equalTo: sender.trailingAnchor).isActive = true
+        selectedImage?.topAnchor.constraint(equalTo: sender.topAnchor).isActive = true
+        selectedImage?.bottomAnchor.constraint(equalTo: sender.bottomAnchor).isActive = true
+        
         
     }
     
