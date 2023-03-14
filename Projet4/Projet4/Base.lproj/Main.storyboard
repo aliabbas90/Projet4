@@ -304,6 +304,7 @@
                         <outlet property="button4" destination="9PL-3A-Gph" id="Hjc-ua-AmR"/>
                         <outlet property="currentStackView" destination="Jpi-py-b6g" id="Idy-Sm-ARr"/>
                         <outlet property="currentView" destination="Dq7-KZ-cvu" id="nsi-FZ-aPs"/>
+                        <outlet property="stackViewButton" destination="byu-Of-4BB" id="LVn-WV-FvS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMZ-1N-nlM" sceneMemberID="firstResponder"/>

@@ -23,30 +23,28 @@ class ViewController: UIViewController {
         let layout3 = createButton(imageName: "Layout3")
         
         customView.callback = { status in
-            if status == .active {
-                print("Appel de la customView")
-            }
-            else {
-                print("Echec")
-            }
+            status == .active ? print("CustomView ok") : print("revefrifier saisis")
         }
     }
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var stackViewButton: UIStackView!
     @IBOutlet weak var button4: UIButton!
+    var currentbutton : UIButton?
     
-    // Accès to photo library
-    @IBAction func ImageBtnTapped(_ sender: Any) {
-        
-        let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
+    
+    // Appel de la fonction UIImagePickerController
+    @IBAction func ImageBtnTapped(_ sender: UIButton) {
+        self.currentbutton = sender
+        let photoLibrary = UIImagePickerController()
+        photoLibrary.sourceType = .photoLibrary
+        photoLibrary.delegate = self
+        photoLibrary.allowsEditing = true
+        present(photoLibrary, animated: true)
         
     }
- 
+    
     /*
      func createView()
      {
@@ -77,21 +75,32 @@ class ViewController: UIViewController {
     @objc func buttonTapped(_ sender: UIButton) {
         customView.isSelected = true
         let selectedImage = customView.image
+        self.currentbutton? = sender
         // retrieve the position of button called
         let buttonPosition = sender.convert(sender.bounds.origin, to: currentView)
         customView.image.frame.origin = buttonPosition
         currentStackView.addArrangedSubview(selectedImage)
-    
+        
     }
-   
-   
+    
 }
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+    // Acces image and save and image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+            var currentImage  = UIImageView()
+            stackViewButton.insertArrangedSubview(currentImage, at: currentbutton!.tag)
+            currentImage.translatesAutoresizingMaskIntoConstraints = false
+            currentImage.image = image
+            currentbutton?.isHidden = true
+        }
+        
         picker.dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+        
     }
 }
