@@ -41,7 +41,7 @@
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus.png"/>
                                                                 <connections>
-                                                                    <action selector="callBtn:" destination="OCl-a2-Q43" eventType="touchUpInside" id="c3a-kf-IK0"/>
+                                                                    <action selector="ImageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="A6e-XA-bRr"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onq-0K-aqv">
@@ -50,6 +50,9 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus.png"/>
+                                                                <connections>
+                                                                    <action selector="ImageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="xf5-gy-1v9"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -295,6 +298,10 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="button1" destination="qLY-Sd-G4K" id="ztk-AU-Tj1"/>
+                        <outlet property="button2" destination="Onq-0K-aqv" id="54X-cM-Il6"/>
+                        <outlet property="button3" destination="xyz-bQ-Da7" id="A7c-mS-ebO"/>
+                        <outlet property="button4" destination="9PL-3A-Gph" id="Hjc-ua-AmR"/>
                         <outlet property="currentStackView" destination="Jpi-py-b6g" id="Idy-Sm-ARr"/>
                         <outlet property="currentView" destination="Dq7-KZ-cvu" id="nsi-FZ-aPs"/>
                     </connections>

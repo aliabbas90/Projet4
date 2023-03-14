@@ -6,12 +6,12 @@
 //
 import Foundation
 import UIKit
+import PhotosUI
 
 class ViewController: UIViewController {
     @IBOutlet weak var currentView: UIView!
     
     @IBOutlet weak var currentStackView: UIStackView!
-    
     
     let customView = CustomUiview()
     
@@ -25,14 +25,28 @@ class ViewController: UIViewController {
         customView.callback = { status in
             if status == .active {
                 print("Appel de la customView")
-                
             }
             else {
                 print("Echec")
             }
         }
+    }
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    
+    // Accès to photo library
+    @IBAction func ImageBtnTapped(_ sender: Any) {
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
         
     }
+ 
     /*
      func createView()
      {
@@ -47,6 +61,7 @@ class ViewController: UIViewController {
      
      }
      */
+    
     func createButton(imageName: String) -> UIButton {
         let button = UIButton(type: .system)
         let image = UIImage(named: imageName)
@@ -64,15 +79,19 @@ class ViewController: UIViewController {
         let selectedImage = customView.image
         // retrieve the position of button called
         let buttonPosition = sender.convert(sender.bounds.origin, to: currentView)
-        customView.image?.frame.origin = buttonPosition
-        currentStackView.addArrangedSubview(customView.image!)
-        selectedImage?.translatesAutoresizingMaskIntoConstraints = false
-        selectedImage?.leadingAnchor.constraint(equalTo: sender.leadingAnchor).isActive = true
-        selectedImage?.trailingAnchor.constraint(equalTo: sender.trailingAnchor).isActive = true
-        selectedImage?.topAnchor.constraint(equalTo: sender.topAnchor).isActive = true
-        selectedImage?.bottomAnchor.constraint(equalTo: sender.bottomAnchor).isActive = true
-        
-        
-    }
+        customView.image.frame.origin = buttonPosition
+        currentStackView.addArrangedSubview(selectedImage)
     
+    }
+   
+   
+}
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
