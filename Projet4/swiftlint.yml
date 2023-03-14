@@ -1,0 +1,28 @@
+included:
+  - Sources # Chemin vers votre code source, à adapter selon votre projet
+
+excluded:
+  - Pods # Chemin vers vos dépendances, à adapter selon votre projet
+
+line_length:
+  warning: 120 # Nombre de caractères maximum par ligne avant d'afficher un avertissement
+  error: 150 # Nombre de caractères maximum par ligne avant de signaler une erreur
+
+trailing_whitespace:
+  severity: warning # Afficher un avertissement si des espaces de fin de ligne sont détectés
+
+indentation:
+  spaces: 2 # Utiliser deux espaces pour l'indentation
+
+semicolon:
+  require_trailing: true # Exiger un point-virgule en fin de ligne
+
+unused_imports:
+  severity: warning # Afficher un avertissement si une importation est inutilisée
+
+file_header:
+  file_patterns: # Liste de motifs de noms de fichiers auxquels la configuration s'applique
+    - ".*\\.swift" # Appliquer la configuration à tous les fichiers avec l'extension ".swift"
+  comment: "Copyright (c) Your Company. All rights reserved."
+  ignores_empty_lines: true
+  ignores_header_pattern: "\\A// DO NOT EDIT: This is an automatically generated file." # Ignorer les fichiers avec cette chaîne dans l'en-tête

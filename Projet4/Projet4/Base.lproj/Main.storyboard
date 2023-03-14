@@ -41,7 +41,7 @@
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus.png"/>
                                                                 <connections>
-                                                                    <action selector="ImageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="A6e-XA-bRr"/>
+                                                                    <action selector="imageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="jLa-vd-87n"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onq-0K-aqv">
@@ -51,7 +51,7 @@
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus.png"/>
                                                                 <connections>
-                                                                    <action selector="ImageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="xf5-gy-1v9"/>
+                                                                    <action selector="imageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="VgP-VQ-nMk"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -65,6 +65,9 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus.png"/>
+                                                                <connections>
+                                                                    <action selector="imageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="yCK-MD-9ES"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PL-3A-Gph">
                                                                 <rect key="frame" x="142.33333333333334" y="0.0" width="127.66666666666666" height="127.33333333333333"/>
@@ -72,6 +75,9 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus.png"/>
+                                                                <connections>
+                                                                    <action selector="imageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="qwQ-V7-wEO"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -300,7 +306,7 @@
                     <connections>
                         <outlet property="button1" destination="qLY-Sd-G4K" id="ztk-AU-Tj1"/>
                         <outlet property="button2" destination="Onq-0K-aqv" id="54X-cM-Il6"/>
-                        <outlet property="button3" destination="xyz-bQ-Da7" id="A7c-mS-ebO"/>
+                        <outlet property="button3" destination="xyz-bQ-Da7" id="c8I-3J-ZBx"/>
                         <outlet property="button4" destination="9PL-3A-Gph" id="Hjc-ua-AmR"/>
                         <outlet property="currentStackView" destination="Jpi-py-b6g" id="Idy-Sm-ARr"/>
                         <outlet property="currentView" destination="Dq7-KZ-cvu" id="nsi-FZ-aPs"/>

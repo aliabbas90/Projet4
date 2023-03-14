@@ -8,9 +8,8 @@
 import UIKit
 
 class CustomUiview: UIView {
-    
     enum Status {
-        case active,unactive
+        case active, unactive
     }
     var image: UIImageView {
         let assetImage = UIImage(named: "Selected")
@@ -22,9 +21,7 @@ class CustomUiview: UIView {
             updateStatus()
         }
     }
-    
     var callback: ((Status) -> Void)?
-    
     func updateStatus() {
         if isSelected {
             callback?(.active)
@@ -34,7 +31,6 @@ class CustomUiview: UIView {
             callback?(.unactive)
         }
     }
-    
     /*
      func createView()
      {
@@ -53,7 +49,4 @@ class CustomUiview: UIView {
      print("couleur non trouver")
      }
      */
-    
-    
-    
 }

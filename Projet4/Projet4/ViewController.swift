@@ -10,20 +10,15 @@ import PhotosUI
 
 class ViewController: UIViewController {
     @IBOutlet weak var currentView: UIView!
-    
     @IBOutlet weak var currentStackView: UIStackView!
-    
     let customView = CustomUiview()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let layout1 = createButton(imageName: "Layout1")
         let layout2 = createButton(imageName: "Layout2")
         let layout3 = createButton(imageName: "Layout3")
-        
         customView.callback = { status in
-            status == .active ? print("CustomView ok") : print("revefrifier saisis")
+            status == .active ? print("CustomView ok") : print("re vefrifier saisis")
         }
     }
     @IBOutlet weak var button1: UIButton!
@@ -31,20 +26,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var stackViewButton: UIStackView!
     @IBOutlet weak var button4: UIButton!
-    var currentbutton : UIButton?
-    
-    
+    var currentbutton: UIButton?
     // Appel de la fonction UIImagePickerController
-    @IBAction func ImageBtnTapped(_ sender: UIButton) {
+    @IBAction func imageBtnTapped(_ sender: UIButton) {
         self.currentbutton = sender
         let photoLibrary = UIImagePickerController()
         photoLibrary.sourceType = .photoLibrary
         photoLibrary.delegate = self
         photoLibrary.allowsEditing = true
         present(photoLibrary, animated: true)
-        
     }
-    
     /*
      func createView()
      {
@@ -59,7 +50,6 @@ class ViewController: UIViewController {
      
      }
      */
-    
     func createButton(imageName: String) -> UIButton {
         let button = UIButton(type: .system)
         let image = UIImage(named: imageName)
@@ -71,7 +61,6 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }
-    
     @objc func buttonTapped(_ sender: UIButton) {
         customView.isSelected = true
         let selectedImage = customView.image
@@ -80,27 +69,21 @@ class ViewController: UIViewController {
         let buttonPosition = sender.convert(sender.bounds.origin, to: currentView)
         customView.image.frame.origin = buttonPosition
         currentStackView.addArrangedSubview(selectedImage)
-        
     }
-    
 }
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // Acces image and save and image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            
-            var currentImage  = UIImageView()
+            var currentImage = UIImageView()
             stackViewButton.insertArrangedSubview(currentImage, at: currentbutton!.tag)
             currentImage.translatesAutoresizingMaskIntoConstraints = false
             currentImage.image = image
             currentbutton?.isHidden = true
         }
-        
         picker.dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-        
     }
 }
