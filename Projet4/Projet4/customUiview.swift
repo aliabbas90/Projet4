@@ -26,8 +26,7 @@ class CustomUiview: UIView {
         if isSelected {
             callback?(.active)
 
-        }
-        else {
+        } else {
             callback?(.unactive)
         }
     }

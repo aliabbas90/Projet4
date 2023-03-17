@@ -16,7 +16,7 @@
 		B4689D5A29B2861200B2DD62 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4689D5829B2861200B2DD62 /* ThirstySoftRegular.otf */; };
 		B4689D5C29B2863400B2DD62 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4689D5B29B2863400B2DD62 /* Delm-Medium.otf */; };
 		B484206F29C1311200B55758 /* exports in Resources */ = {isa = PBXBuildFile; fileRef = B484206E29C1311200B55758 /* exports */; };
-		B4BE550229B8868300533F3B /* customUiview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BE550129B8868300533F3B /* customUiview.swift */; };
+		B491914929C1C95E00D21E49 /* LayoutSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B491914829C1C95D00D21E49 /* LayoutSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 		B4689D5829B2861200B2DD62 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		B4689D5B29B2863400B2DD62 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		B484206E29C1311200B55758 /* exports */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = exports; sourceTree = SOURCE_ROOT; };
-		B4BE550129B8868300533F3B /* customUiview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customUiview.swift; sourceTree = "<group>"; };
+		B491914829C1C95D00D21E49 /* LayoutSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutSelectionView.swift; sourceTree = "<group>"; };
 		B4BE550329B9B75200533F3B /* Plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus@3x.png"; sourceTree = "<group>"; };
 		B4BE550429B9B76700533F3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,7 +69,7 @@
 				B457F04C29B0188E00CED7D6 /* SceneDelegate.swift */,
 				B457F04E29B0188E00CED7D6 /* ViewController.swift */,
 				B457F05029B0188E00CED7D6 /* Main.storyboard */,
-				B4BE550129B8868300533F3B /* customUiview.swift */,
+				B491914829C1C95D00D21E49 /* LayoutSelectionView.swift */,
 				B4BE550329B9B75200533F3B /* Plus@3x.png */,
 				B4BE550429B9B76700533F3B /* Assets.xcassets */,
 				B457F05529B0189000CED7D6 /* LaunchScreen.storyboard */,
@@ -168,7 +168,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -177,8 +178,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B491914929C1C95E00D21E49 /* LayoutSelectionView.swift in Sources */,
 				B457F04F29B0188E00CED7D6 /* ViewController.swift in Sources */,
-				B4BE550229B8868300533F3B /* customUiview.swift in Sources */,
 				B457F04B29B0188E00CED7D6 /* AppDelegate.swift in Sources */,
 				B457F04D29B0188E00CED7D6 /* SceneDelegate.swift in Sources */,
 			);
@@ -327,6 +328,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 285377BMM7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Projet4/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -339,7 +341,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LionelSIo.Projet4;
+				PRODUCT_BUNDLE_IDENTIFIER = Lionel.Ekoue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -354,6 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 285377BMM7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Projet4/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -366,7 +369,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LionelSIo.Projet4;
+				PRODUCT_BUNDLE_IDENTIFIER = Lionel.Ekoue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -11,16 +11,7 @@ import PhotosUI
 class ViewController: UIViewController {
     @IBOutlet weak var currentView: UIView!
     @IBOutlet weak var currentStackView: UIStackView!
-    let customView = CustomUiview()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let layout1 = createButton(imageName: "Layout1")
-        let layout2 = createButton(imageName: "Layout2")
-        let layout3 = createButton(imageName: "Layout3")
-        customView.callback = { status in
-            status == .active ? print("CustomView ok") : print("re vefrifier saisis")
-        }
-    }
+    let customView = LayoutSelectionView()
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -36,24 +27,55 @@ class ViewController: UIViewController {
         photoLibrary.allowsEditing = true
         present(photoLibrary, animated: true)
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initLayoutsButtons()
+    }
+    
+    private func initLayoutsButtons() {
+        let layout1 = LayoutSelectionView()
+        layout1.type = .type1
+        print("hello")
+        layout1.translatesAutoresizingMaskIntoConstraints = false
+        currentStackView.addArrangedSubview(layout1.type.button)
+        layout1.setUpView()
+        layout1.callback = { type in
+            
+            self.updateMainView(layout: type)
+        
+        }
+        
+        let layout2 = LayoutSelectionView()
+        layout2.type = .type2
+        layout2.translatesAutoresizingMaskIntoConstraints = false
+        currentStackView.addArrangedSubview(layout2.type.button)
+        layout2.callback = { type in
+            self.updateMainView(layout: type)
+        }
+        
+        let layout3 = LayoutSelectionView()
+        layout3.type = .type3
+        layout3.translatesAutoresizingMaskIntoConstraints = false
+        currentStackView.addArrangedSubview(layout3.type.button)
+        layout3.callback = { type in
+            self.updateMainView(layout: type)
+        }
+    }
+    
+    private func updateMainView(layout: LayoutSelectionView.LayoutType) {
+        switch layout {
+        case .type1:
+         print("hello")
+            break
+        case .type2: break
+        case .type3: break
+        }
+    }
     /*
-     func createView()
-     {
-     let layout = UIView()
-     currentView.addSubview(layout)
-     layout.translatesAutoresizingMaskIntoConstraints = false
-     layout.leadingAnchor.constraint(equalTo: currentView.leadingAnchor).isActive = true
-     layout.trailingAnchor.constraint(equalTo: currentView.trailingAnchor).isActive = true
-     layout.topAnchor.constraint(equalTo: currentView.topAnchor).isActive = true
-     layout.bottomAnchor.constraint(equalTo: currentView.bottomAnchor).isActive = true
-     layout.backgroundColor = UIColor(named: "colo")
-     
-     }
-     */
     func createButton(imageName: String) -> UIButton {
         let button = UIButton(type: .system)
         let image = UIImage(named: imageName)
-        customView.isSelected = false
+       // customView.isSelected = false
         let originalImage = image?.withRenderingMode(.alwaysOriginal)
         button.setImage(originalImage, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -61,14 +83,15 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }
+     */
+
+    
     @objc func buttonTapped(_ sender: UIButton) {
-        customView.isSelected = true
-        let selectedImage = customView.image
+
         self.currentbutton? = sender
         // retrieve the position of button called
         let buttonPosition = sender.convert(sender.bounds.origin, to: currentView)
-        customView.image.frame.origin = buttonPosition
-        currentStackView.addArrangedSubview(selectedImage)
+      print("Hey")
     }
 }
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

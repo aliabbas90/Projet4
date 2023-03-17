@@ -4,11 +4,7 @@
 <dict>
 	<key>Privacy - Photo Library Additions Usage Description
 </key>
-	<string>Accès à l&apos;appareil photo</string>
-	<key>CFBundleExecutable</key>
-	<string></string>
-	<key>CFBundleIdentifier</key>
-	<string></string>
+	<string>Accès à l'appareil photo</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string></string>
