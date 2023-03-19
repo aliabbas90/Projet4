@@ -9,6 +9,10 @@ import UIKit
 
 class LayoutSelectionView: UIView {
     
+    static var lastSelectedView: LayoutSelectionView?
+    
+    var buttonPressed : Bool = false
+
     enum LayoutType {
         case type1, type2, type3
         
@@ -20,14 +24,9 @@ class LayoutSelectionView: UIView {
             }
             
         }
-        var button: UIButton {
-            var currentButton = UIButton(type: .custom)
-            let originalImage = image.withRenderingMode(.alwaysOriginal)
-            currentButton.setImage(originalImage, for: .normal)
-            return currentButton
-        }
+        // Init button + set up UITapGesture
     }
-    
+    private var button: UIButton!
     private var selectedImageView: UIImageView!
     private var isSelected: Bool = false {
         didSet {
@@ -37,51 +36,91 @@ class LayoutSelectionView: UIView {
     
     var callback: ((LayoutType) -> Void)?
     var type: LayoutType = .type1
+    {
+        didSet {
+            button.setImage(type.image, for: .normal)
+        }
+    }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setUpView()
+        // setUpView()
     }
     
+    
+    
     // MARK: - setUp view button layout
-    func setUpView() {
-        //initSelectedImageView()
+    private  func setUpView() {
+    
         
-        //self.addSubview(self.type.button)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
-        tapGesture.numberOfTapsRequired = 1
-        tapGesture.numberOfTouchesRequired = 1
-        self.addGestureRecognizer(tapGesture)
+        
+         button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(handleTapGesture), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let originalImage = type.image.withRenderingMode(.alwaysOriginal)
+        button.setImage(originalImage, for: .normal)
+        self.addSubview(button)
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: topAnchor),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
         
         // Création d'un geste sur un button lorsque le button  sera initialiser dans le viewController
         
         // TODO: Ajouter une tap gesture recognizer pour appeler le call back une fois le self touché
         // TODO: Bonus : Rajouter un retour haptic au tape
     }
-    
-    @objc func handleTapGesture(_ gesture: UITapGestureRecognizer){
+    // if the button was pressed the function is called
+    @objc func handleTapGesture(_ sender: UIButton){
         
         // Lorsque un boutton est prsser un message sur le terminal devrais apparaître
-        print("ok")
-        self.callback?(type)
+        
+        
+        if !isSelected {
+
+            isSelected = true
+            
+        }
+        
+        else {
+            isSelected = false
+            button.layer.opacity = 1
+        }
+        
+        
+        
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
+        
         
     }
     
     private func updateStatus() {
-        selectedImageView.isHidden = !isSelected
         if isSelected {
+
             callback?(type)
             initSelectedImageView()
             // Afficher l'image de selection
         } else {
             // Cacher l'image de selection
             callback?(type)
+            selectedImageView.isHidden = !isSelected
         }
+    }
+    
+    func getSelectedButton() -> UIButton {
+        
+        return self.button
     }
     
     private func initSelectedImageView() {

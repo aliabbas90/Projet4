@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,7 +34,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="byu-Of-4BB" userLabel="Stack View button top">
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="127.66666666666667"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLY-Sd-G4K">
+                                                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLY-Sd-G4K">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.33333333333333" height="127.66666666666667"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -44,7 +44,7 @@
                                                                     <action selector="imageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="jLa-vd-87n"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onq-0K-aqv">
+                                                            <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onq-0K-aqv">
                                                                 <rect key="frame" x="142.33333333333334" y="0.0" width="127.66666666666666" height="127.66666666666667"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -59,7 +59,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="7Kk-7a-eKO" userLabel="Stack View butoton bottom">
                                                         <rect key="frame" x="0.0" y="142.66666666666666" width="270" height="127.33333333333334"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyz-bQ-Da7">
+                                                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyz-bQ-Da7">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.33333333333333" height="127.33333333333333"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -69,14 +69,14 @@
                                                                     <action selector="imageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="yCK-MD-9ES"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PL-3A-Gph">
+                                                            <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PL-3A-Gph">
                                                                 <rect key="frame" x="142.33333333333334" y="0.0" width="127.66666666666666" height="127.33333333333333"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="Plus.png"/>
                                                                 <connections>
-                                                                    <action selector="imageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="qwQ-V7-wEO"/>
+                                                                    <action selector="imageBtnTapped:" destination="OCl-a2-Q43" eventType="touchUpInside" id="Gjc-Jp-r0i"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -185,7 +185,7 @@
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jpi-py-b6g">
                                 <rect key="frame" x="46" y="703" width="301" height="80"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" name="colo"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="F3M-9T-wJi"/>
                                     <constraint firstAttribute="width" constant="301" id="R5j-mf-eh3"/>
@@ -307,10 +307,11 @@
                         <outlet property="button1" destination="qLY-Sd-G4K" id="ztk-AU-Tj1"/>
                         <outlet property="button2" destination="Onq-0K-aqv" id="54X-cM-Il6"/>
                         <outlet property="button3" destination="xyz-bQ-Da7" id="c8I-3J-ZBx"/>
-                        <outlet property="button4" destination="9PL-3A-Gph" id="Hjc-ua-AmR"/>
+                        <outlet property="button4" destination="9PL-3A-Gph" id="EC7-KL-ZUw"/>
                         <outlet property="currentStackView" destination="Jpi-py-b6g" id="Idy-Sm-ARr"/>
                         <outlet property="currentView" destination="Dq7-KZ-cvu" id="nsi-FZ-aPs"/>
-                        <outlet property="stackViewButton" destination="byu-Of-4BB" id="LVn-WV-FvS"/>
+                        <outlet property="stackViewButtonBottom" destination="7Kk-7a-eKO" id="hUX-4J-zKy"/>
+                        <outlet property="stackViewButtonTop" destination="byu-Of-4BB" id="zGi-Wl-u27"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMZ-1N-nlM" sceneMemberID="firstResponder"/>
@@ -320,8 +321,8 @@
     </scenes>
     <resources>
         <image name="Plus.png" width="13.333333015441895" height="13.333333015441895"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="colo">
+            <color red="0.14100000262260437" green="0.51800000667572021" blue="0.6589999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
