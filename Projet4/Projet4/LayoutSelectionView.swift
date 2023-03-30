@@ -12,7 +12,7 @@ class LayoutSelectionView: UIView {
     static var lastSelectedView: LayoutSelectionView?
     
     var buttonPressed : Bool = false
-
+    
     enum LayoutType {
         case type1, type2, type3
         
@@ -24,11 +24,10 @@ class LayoutSelectionView: UIView {
             }
             
         }
-        // Init button + set up UITapGesture
     }
     private var button: UIButton!
     private var selectedImageView: UIImageView!
-     var isSelected: Bool = false {
+    var isSelected: Bool = false {
         didSet {
             updateStatus()
         }
@@ -42,7 +41,6 @@ class LayoutSelectionView: UIView {
         }
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -53,9 +51,9 @@ class LayoutSelectionView: UIView {
         super.init(coder: aDecoder)
     }
     
-         private  func setUpView() {
-    
-         button = UIButton(type: .custom)
+    private  func setUpView() {
+        
+        button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(handleTapGesture), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         let originalImage = type.image.withRenderingMode(.alwaysOriginal)
@@ -68,33 +66,21 @@ class LayoutSelectionView: UIView {
             button.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         
-        // Création d'un geste sur un button lorsque le button  sera initialiser dans le viewController
-        
-        // TODO: Ajouter une tap gesture recognizer pour appeler le call back une fois le self touché
-        // TODO: Bonus : Rajouter un retour haptic au tape
     }
     @objc func handleTapGesture(_ sender: UIButton){
         
         callback?(type)
-        
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
         generator.impactOccurred()
-        
     }
     
     private func updateStatus() {
         if isSelected {
             initSelectedImageView()
         } else {
-            // Cacher l'image de selection
             selectedImageView?.isHidden = !isSelected
         }
-    }
-    
-    func getSelectedButton() -> UIButton {
-        
-        return self.button
     }
     
     private func initSelectedImageView() {
@@ -110,7 +96,6 @@ class LayoutSelectionView: UIView {
                 selectedImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
                 selectedImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
             ])
-            
         }
         selectedImageView.isHidden = !isSelected
     }

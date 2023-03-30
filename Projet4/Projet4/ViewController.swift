@@ -37,8 +37,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            initLayoutsButtons()
-         detectOrientation()
+        initLayoutsButtons()
+        detectOrientation()
         let swipeHandleGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
         swipeHandleGesture.direction = .up
         view.addGestureRecognizer(swipeHandleGesture)
@@ -55,16 +55,10 @@ class ViewController: UIViewController {
             self.present(activity, animated: true, completion: nil)
         }
     }
-       
+    
     func detectOrientation() {
-        if UIDevice.current.orientation.isLandscape {
-            currentText.text = "Swipe left to share"
+        currentText.text = UIDevice.current.orientation.isLandscape ? "Swipe left to share" : "Swipe up to share"
         
-        } else {
-            print("Portrait")
-            currentText.text = "Swipe up to share"
-            
-        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -102,10 +96,10 @@ class ViewController: UIViewController {
             self.unSelectLayouts()
             layout3.isSelected = true
             self.updateMainView(layout: type)
-
+            
         }
         elements.append(layout3)
-
+        
     }
     func unSelectLayouts() {
         
@@ -114,15 +108,14 @@ class ViewController: UIViewController {
             
         }
     }
-        
+    
     private func updateMainView(layout: LayoutSelectionView.LayoutType) {
         switch layout {
-            
             
         case .type1:
             button1.isHidden = true
             button3.isHidden = false
-
+            
         case .type2:
             button1.isHidden = false
             button3.isHidden = true
@@ -130,15 +123,14 @@ class ViewController: UIViewController {
         case .type3:
             button3.isHidden = false
             button1.isHidden = false
-                    
+            
         }
     }
-  
+    
 }
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @objc func imageTapped(_ tapGestureRecognizer: UITapGestureRecognizer) {
         if let imageView = tapGestureRecognizer.view as? UIImageView {
-            print("ok")
             let photoLibrary = UIImagePickerController()
             photoLibrary.sourceType = .photoLibrary
             photoLibrary.delegate = self
@@ -156,7 +148,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 replaceSelectedImage = false
                 selectedImageView = nil
             } else {
-               
+                
                 self.currentbutton?.setImage(image, for: .normal)
             }
             picker.dismiss(animated: true, completion: nil)
@@ -165,5 +157,5 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             picker.dismiss(animated: true, completion: nil)
         }
         
-     }
+    }
 }
