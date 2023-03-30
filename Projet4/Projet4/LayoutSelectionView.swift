@@ -28,7 +28,7 @@ class LayoutSelectionView: UIView {
     }
     private var button: UIButton!
     private var selectedImageView: UIImageView!
-    private var isSelected: Bool = false {
+     var isSelected: Bool = false {
         didSet {
             updateStatus()
         }
@@ -51,16 +51,10 @@ class LayoutSelectionView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        // setUpView()
     }
     
+         private  func setUpView() {
     
-    
-    // MARK: - setUp view button layout
-    private  func setUpView() {
-    
-        
-        
          button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(handleTapGesture), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -79,42 +73,22 @@ class LayoutSelectionView: UIView {
         // TODO: Ajouter une tap gesture recognizer pour appeler le call back une fois le self touché
         // TODO: Bonus : Rajouter un retour haptic au tape
     }
-    // if the button was pressed the function is called
     @objc func handleTapGesture(_ sender: UIButton){
         
-        // Lorsque un boutton est prsser un message sur le terminal devrais apparaître
-        
-        
-        if !isSelected {
-
-            isSelected = true
-            
-        }
-        
-        else {
-            isSelected = false
-            button.layer.opacity = 1
-        }
-        
-        
+        callback?(type)
         
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
         generator.impactOccurred()
         
-        
     }
     
     private func updateStatus() {
         if isSelected {
-
-            callback?(type)
             initSelectedImageView()
-            // Afficher l'image de selection
         } else {
             // Cacher l'image de selection
-            callback?(type)
-            selectedImageView.isHidden = !isSelected
+            selectedImageView?.isHidden = !isSelected
         }
     }
     
@@ -124,18 +98,20 @@ class LayoutSelectionView: UIView {
     }
     
     private func initSelectedImageView() {
-        selectedImageView = UIImageView()
-        selectedImageView.contentMode = .scaleToFill
-        selectedImageView.translatesAutoresizingMaskIntoConstraints = false
-        selectedImageView.image = UIImage(named: "Selected")
-        addSubview(selectedImageView)
-        NSLayoutConstraint.activate([
-            selectedImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            selectedImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            selectedImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            selectedImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
-        ])
+        if selectedImageView == nil {
+            selectedImageView = UIImageView()
+            selectedImageView.contentMode = .scaleToFill
+            selectedImageView.translatesAutoresizingMaskIntoConstraints = false
+            selectedImageView.image = UIImage(named: "Selected")
+            addSubview(selectedImageView)
+            NSLayoutConstraint.activate([
+                selectedImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+                selectedImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
+                selectedImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+                selectedImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
+            ])
+            
+        }
         selectedImageView.isHidden = !isSelected
     }
-    
 }

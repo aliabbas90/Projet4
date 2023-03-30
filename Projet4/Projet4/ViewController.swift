@@ -15,12 +15,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var currentText: UILabel!
+    @IBOutlet var arrayButton: [UIButton]!
     @IBOutlet weak var stackViewButtonTop: UIStackView!
     @IBOutlet weak var stackViewButtonBottom: UIStackView!
     var currentbutton: UIButton?
     var replaceSelectedImage = false
     var selectedImageView: UIImageView?
     var buttonLayout1: UIButton?
+    lazy var elements : [LayoutSelectionView] = []
     
     // Appel de la fonction UIImagePickerController
     @IBAction func imageBtnTapped(_ sender: UIButton) {
@@ -33,65 +36,101 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        initLayoutsButtons()
         
+            initLayoutsButtons()
+         detectOrientation()
+        let swipeHandleGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        swipeHandleGesture.direction = .up
+        view.addGestureRecognizer(swipeHandleGesture)
+        
+    }
+    
+    @objc private func didSwipe() {
+        
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
+        arrayButton.forEach { element in
+            let activity = UIActivityViewController(activityItems: [element.currentImage!], applicationActivities: nil)
+            self.present(activity, animated: true, completion: nil)
+        }
+    }
+       
+    func detectOrientation() {
+        if UIDevice.current.orientation.isLandscape {
+            currentText.text = "Swipe left to share"
+        
+        } else {
+            print("Portrait")
+            currentText.text = "Swipe up to share"
+            
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        detectOrientation()
     }
     
     private func initLayoutsButtons() {
         let layout1 = LayoutSelectionView()
-        
-       
         layout1.translatesAutoresizingMaskIntoConstraints = false
         currentStackView.addArrangedSubview(layout1)
         layout1.callback = { type in
-            
-            
+            self.unSelectLayouts()
+            layout1.isSelected = true
             self.updateMainView(layout: type)
-            
-            
         }
+        elements.append(layout1)
         
         let layout2 = LayoutSelectionView()
         layout2.type = .type2
         layout2.translatesAutoresizingMaskIntoConstraints = false
         currentStackView.addArrangedSubview(layout2)
         layout2.callback = { type in
+            self.unSelectLayouts()
+            layout2.isSelected = true
             self.updateMainView(layout: type)
-            layout2.layer.opacity =  1
         }
         
+        elements.append(layout2)
         let layout3 = LayoutSelectionView()
         layout3.type = .type3
         currentStackView.addArrangedSubview(layout3)
         layout3.translatesAutoresizingMaskIntoConstraints = false
         
         layout3.callback = { type in
+            self.unSelectLayouts()
+            layout3.isSelected = true
             self.updateMainView(layout: type)
+
+        }
+        elements.append(layout3)
+
+    }
+    func unSelectLayouts() {
+        
+        elements.forEach { layout in
+            layout.isSelected = false
             
         }
     }
-    
+        
     private func updateMainView(layout: LayoutSelectionView.LayoutType) {
         switch layout {
             
             
-            
         case .type1:
-                print("Okay")
-                
-    
-            
             button1.isHidden = true
             button3.isHidden = false
-            break
+
         case .type2:
             button1.isHidden = false
             button3.isHidden = true
-            break
+            
         case .type3:
             button3.isHidden = false
             button1.isHidden = false
-            break
+                    
         }
     }
   
@@ -106,7 +145,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             photoLibrary.allowsEditing = true
             replaceSelectedImage = true
             selectedImageView = imageView // Save a reference to the selected image view
-            
             present(photoLibrary, animated: true)
         }
         
@@ -118,22 +156,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 replaceSelectedImage = false
                 selectedImageView = nil
             } else {
-                // Add the new image to the stack view
-                let currentImage = UIImageView()
-                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-                currentImage.isUserInteractionEnabled = true
-                currentImage.addGestureRecognizer(tapGestureRecognizer)
-                switch currentbutton!.tag {
-                case 1, 2:
-                    stackViewButtonTop.insertArrangedSubview(currentImage, at: currentbutton!.tag)
-                case 3, 4:
-                    stackViewButtonBottom.insertArrangedSubview(currentImage, at: currentbutton!.tag - 3)
-                default:
-                    break
-                }
-                currentImage.translatesAutoresizingMaskIntoConstraints = false
-                currentImage.image = image
-                currentbutton?.isHidden = true
+               
+                self.currentbutton?.setImage(image, for: .normal)
             }
             picker.dismiss(animated: true, completion: nil)
         }
@@ -141,12 +165,5 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             picker.dismiss(animated: true, completion: nil)
         }
         
-   
-        
-    }
+     }
 }
-
-
-
-
-// Ajouter un geste recognizer pour le swipe 

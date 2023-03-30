@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -152,8 +151,8 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY8-jv-JqI">
-                                <rect key="frame" x="105.33333333333333" y="184" width="182.66666666666669" height="25.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY8-jv-JqI">
+                                <rect key="frame" x="107.66666666666667" y="184" width="177.66666666666663" height="25.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -185,7 +184,7 @@
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jpi-py-b6g">
                                 <rect key="frame" x="46" y="703" width="301" height="80"/>
-                                <color key="backgroundColor" name="colo"/>
+                                <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="F3M-9T-wJi"/>
                                     <constraint firstAttribute="width" constant="301" id="R5j-mf-eh3"/>
@@ -309,9 +308,14 @@
                         <outlet property="button3" destination="xyz-bQ-Da7" id="c8I-3J-ZBx"/>
                         <outlet property="button4" destination="9PL-3A-Gph" id="EC7-KL-ZUw"/>
                         <outlet property="currentStackView" destination="Jpi-py-b6g" id="Idy-Sm-ARr"/>
+                        <outlet property="currentText" destination="EY8-jv-JqI" id="xuw-Qo-HTv"/>
                         <outlet property="currentView" destination="Dq7-KZ-cvu" id="nsi-FZ-aPs"/>
                         <outlet property="stackViewButtonBottom" destination="7Kk-7a-eKO" id="hUX-4J-zKy"/>
                         <outlet property="stackViewButtonTop" destination="byu-Of-4BB" id="zGi-Wl-u27"/>
+                        <outletCollection property="arrayButton" destination="qLY-Sd-G4K" collectionClass="NSMutableArray" id="3Vl-4a-3NU"/>
+                        <outletCollection property="arrayButton" destination="Onq-0K-aqv" collectionClass="NSMutableArray" id="h3x-4F-8Dg"/>
+                        <outletCollection property="arrayButton" destination="xyz-bQ-Da7" collectionClass="NSMutableArray" id="rHW-7h-bBa"/>
+                        <outletCollection property="arrayButton" destination="9PL-3A-Gph" collectionClass="NSMutableArray" id="bWY-ml-Ewz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMZ-1N-nlM" sceneMemberID="firstResponder"/>
@@ -321,8 +325,5 @@
     </scenes>
     <resources>
         <image name="Plus.png" width="13.333333015441895" height="13.333333015441895"/>
-        <namedColor name="colo">
-            <color red="0.14100000262260437" green="0.51800000667572021" blue="0.6589999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
