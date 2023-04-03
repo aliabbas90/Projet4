@@ -10,12 +10,13 @@ import PhotosUI
 class ViewController: UIViewController {
     @IBOutlet weak var currentView: UIView!
     @IBOutlet weak var currentStackView: UIStackView!
-    let customView = LayoutSelectionView()
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var currentText: UILabel!
+    
+    
     @IBOutlet var arrayButton: [UIButton]!
     @IBOutlet weak var stackViewButtonTop: UIStackView!
     @IBOutlet weak var stackViewButtonBottom: UIStackView!
@@ -36,7 +37,6 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initLayoutsButtons()
         detectOrientation()
         let swipeHandleGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
@@ -46,7 +46,6 @@ class ViewController: UIViewController {
     }
     
     @objc private func didSwipe() {
-        
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
         generator.impactOccurred()
@@ -91,7 +90,6 @@ class ViewController: UIViewController {
         layout3.type = .type3
         currentStackView.addArrangedSubview(layout3)
         layout3.translatesAutoresizingMaskIntoConstraints = false
-        
         layout3.callback = { type in
             self.unSelectLayouts()
             layout3.isSelected = true
@@ -126,21 +124,9 @@ class ViewController: UIViewController {
             
         }
     }
-    
 }
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @objc func imageTapped(_ tapGestureRecognizer: UITapGestureRecognizer) {
-        if let imageView = tapGestureRecognizer.view as? UIImageView {
-            let photoLibrary = UIImagePickerController()
-            photoLibrary.sourceType = .photoLibrary
-            photoLibrary.delegate = self
-            photoLibrary.allowsEditing = true
-            replaceSelectedImage = true
-            selectedImageView = imageView // Save a reference to the selected image view
-            present(photoLibrary, animated: true)
-        }
-        
-    }
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             if replaceSelectedImage, let imageView = selectedImageView {

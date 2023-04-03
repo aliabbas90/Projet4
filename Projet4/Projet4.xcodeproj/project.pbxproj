@@ -12,7 +12,6 @@
 		B457F04D29B0188E00CED7D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F04C29B0188E00CED7D6 /* SceneDelegate.swift */; };
 		B457F04F29B0188E00CED7D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B457F04E29B0188E00CED7D6 /* ViewController.swift */; };
 		B457F05229B0188E00CED7D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B457F05029B0188E00CED7D6 /* Main.storyboard */; };
-		B457F05729B0189000CED7D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B457F05529B0189000CED7D6 /* LaunchScreen.storyboard */; };
 		B4689D5A29B2861200B2DD62 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4689D5829B2861200B2DD62 /* ThirstySoftRegular.otf */; };
 		B4689D5C29B2863400B2DD62 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4689D5B29B2863400B2DD62 /* Delm-Medium.otf */; };
 		B484206F29C1311200B55758 /* exports in Resources */ = {isa = PBXBuildFile; fileRef = B484206E29C1311200B55758 /* exports */; };
@@ -25,13 +24,11 @@
 		B457F04C29B0188E00CED7D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B457F04E29B0188E00CED7D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B457F05129B0188E00CED7D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B457F05629B0189000CED7D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B457F05829B0189000CED7D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4689D5829B2861200B2DD62 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		B4689D5B29B2863400B2DD62 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
-		B484206E29C1311200B55758 /* exports */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = exports; sourceTree = SOURCE_ROOT; };
+		B484206E29C1311200B55758 /* exports */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = exports; path = Projet4/Data/exports; sourceTree = SOURCE_ROOT; };
 		B491914829C1C95D00D21E49 /* LayoutSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutSelectionView.swift; sourceTree = "<group>"; };
-		B4BE550329B9B75200533F3B /* Plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus@3x.png"; sourceTree = "<group>"; };
 		B4BE550429B9B76700533F3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,20 +62,42 @@
 		B457F04929B0188E00CED7D6 /* Projet4 */ = {
 			isa = PBXGroup;
 			children = (
-				B457F04A29B0188E00CED7D6 /* AppDelegate.swift */,
-				B457F04C29B0188E00CED7D6 /* SceneDelegate.swift */,
-				B457F04E29B0188E00CED7D6 /* ViewController.swift */,
-				B457F05029B0188E00CED7D6 /* Main.storyboard */,
-				B491914829C1C95D00D21E49 /* LayoutSelectionView.swift */,
-				B4BE550329B9B75200533F3B /* Plus@3x.png */,
-				B4BE550429B9B76700533F3B /* Assets.xcassets */,
-				B457F05529B0189000CED7D6 /* LaunchScreen.storyboard */,
-				B4689D5B29B2863400B2DD62 /* Delm-Medium.otf */,
-				B4689D5829B2861200B2DD62 /* ThirstySoftRegular.otf */,
 				B457F05829B0189000CED7D6 /* Info.plist */,
-				B484206E29C1311200B55758 /* exports */,
+				B4C158C629D79B38007AB76D /* Data */,
+				B4C158C529D79A35007AB76D /* Controller */,
+				B4C158C429D799A6007AB76D /* View */,
 			);
 			path = Projet4;
+			sourceTree = "<group>";
+		};
+		B4C158C429D799A6007AB76D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B457F05029B0188E00CED7D6 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4C158C529D79A35007AB76D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B457F04E29B0188E00CED7D6 /* ViewController.swift */,
+				B491914829C1C95D00D21E49 /* LayoutSelectionView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B4C158C629D79B38007AB76D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B4BE550429B9B76700533F3B /* Assets.xcassets */,
+				B457F04C29B0188E00CED7D6 /* SceneDelegate.swift */,
+				B457F04A29B0188E00CED7D6 /* AppDelegate.swift */,
+				B4689D5B29B2863400B2DD62 /* Delm-Medium.otf */,
+				B4689D5829B2861200B2DD62 /* ThirstySoftRegular.otf */,
+				B484206E29C1311200B55758 /* exports */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +162,6 @@
 				B44A1AD829BA928000E1BA30 /* Assets.xcassets in Resources */,
 				B484206F29C1311200B55758 /* exports in Resources */,
 				B4689D5C29B2863400B2DD62 /* Delm-Medium.otf in Resources */,
-				B457F05729B0189000CED7D6 /* LaunchScreen.storyboard in Resources */,
 				B4689D5A29B2861200B2DD62 /* ThirstySoftRegular.otf in Resources */,
 				B457F05229B0188E00CED7D6 /* Main.storyboard in Resources */,
 			);
@@ -194,14 +212,6 @@
 				B457F05129B0188E00CED7D6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B457F05529B0189000CED7D6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B457F05629B0189000CED7D6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

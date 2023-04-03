@@ -8,9 +8,7 @@
 import UIKit
 
 class LayoutSelectionView: UIView {
-    
-    static var lastSelectedView: LayoutSelectionView?
-    
+        
     var buttonPressed : Bool = false
     
     enum LayoutType {
@@ -91,10 +89,10 @@ class LayoutSelectionView: UIView {
             selectedImageView.image = UIImage(named: "Selected")
             addSubview(selectedImageView)
             NSLayoutConstraint.activate([
-                selectedImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-                selectedImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-                selectedImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-                selectedImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
+                selectedImageView.topAnchor.constraint(equalTo: button.topAnchor),
+                selectedImageView.bottomAnchor.constraint(equalTo: button.bottomAnchor),
+                selectedImageView.leadingAnchor.constraint(equalTo: button.leadingAnchor),
+                selectedImageView.trailingAnchor.constraint(equalTo: button.trailingAnchor)
             ])
         }
         selectedImageView.isHidden = !isSelected
