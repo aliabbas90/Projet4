@@ -51,17 +51,26 @@ class LayoutSelectionView: UIView {
     
     private  func setUpView() {
         
+        
+        
+        
         button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(handleTapGesture), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         let originalImage = type.image.withRenderingMode(.alwaysOriginal)
         button.setImage(originalImage, for: .normal)
         self.addSubview(button)
+  
+
+        
         NSLayoutConstraint.activate([
+            
             button.topAnchor.constraint(equalTo: topAnchor),
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
             button.leadingAnchor.constraint(equalTo: leadingAnchor),
-            button.trailingAnchor.constraint(equalTo: trailingAnchor)
+           button.trailingAnchor.constraint(equalTo: trailingAnchor),
+    
+           
         ])
         
     }
@@ -84,7 +93,7 @@ class LayoutSelectionView: UIView {
     private func initSelectedImageView() {
         if selectedImageView == nil {
             selectedImageView = UIImageView()
-            selectedImageView.contentMode = .scaleToFill
+            selectedImageView.contentMode = .scaleAspectFit
             selectedImageView.translatesAutoresizingMaskIntoConstraints = false
             selectedImageView.image = UIImage(named: "Selected")
             addSubview(selectedImageView)
