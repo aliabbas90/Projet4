@@ -23,6 +23,15 @@ class LayoutSelectionView: UIView {
             
         }
     }
+    
+    override var intrinsicContentSize: CGSize {
+        
+        let originalSize = super.intrinsicContentSize
+        
+        
+        return CGSize.init(width: 100, height: 100)
+    }
+    
     private var button: UIButton!
     private var selectedImageView: UIImageView!
     var isSelected: Bool = false {
@@ -55,24 +64,28 @@ class LayoutSelectionView: UIView {
         
         
         button = UIButton(type: .custom)
+        button.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(handleTapGesture), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         let originalImage = type.image.withRenderingMode(.alwaysOriginal)
         button.setImage(originalImage, for: .normal)
-        self.addSubview(button)
-  
+        button.contentMode = .scaleAspectFit
+
 
         
+        self.addSubview(button)
+  
         NSLayoutConstraint.activate([
-            
             button.topAnchor.constraint(equalTo: topAnchor),
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
             button.leadingAnchor.constraint(equalTo: leadingAnchor),
-           button.trailingAnchor.constraint(equalTo: trailingAnchor),
-    
-           
-        ])
+         button.trailingAnchor.constraint(equalTo: trailingAnchor),
+          button.heightAnchor.constraint(equalToConstant: 100),
+           button.widthAnchor.constraint(equalToConstant: 100)
         
+        ])
+     
+    
     }
     @objc func handleTapGesture(_ sender: UIButton){
         
@@ -102,8 +115,21 @@ class LayoutSelectionView: UIView {
                 selectedImageView.bottomAnchor.constraint(equalTo: button.bottomAnchor),
                 selectedImageView.leadingAnchor.constraint(equalTo: button.leadingAnchor),
                 selectedImageView.trailingAnchor.constraint(equalTo: button.trailingAnchor)
+                
             ])
         }
         selectedImageView.isHidden = !isSelected
     }
+
 }
+
+extension UIImage {
+    func resize(to newSize: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: newSize).image { _ in
+            self.draw(in: CGRect(origin: .zero, size: newSize))
+        }
+    }
+}
+
+ 
+

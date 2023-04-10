@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var currentText: UILabel!
     
+    @IBOutlet weak var allStackViewBtn: UIStackView!
     @IBOutlet weak var buttonSwipe: UIButton!
     
     @IBOutlet var arrayButton: [UIButton]!
@@ -47,6 +48,21 @@ class ViewController: UIViewController {
     }
     
     @objc private func didSwipe() {
+        
+        let screenHeight = UIScreen.main.bounds.height
+        let screenWidth = UIScreen.main.bounds.width
+        
+        var translationTransformNeg = CGAffineTransform()
+        var translationTransformPos = CGAffineTransform()
+        
+    
+        
+        UIView.animate(withDuration: 0.5, animations: {
+         
+            self.allStackViewBtn.alpha = 0
+        })
+
+        
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
         generator.impactOccurred()
@@ -58,6 +74,7 @@ class ViewController: UIViewController {
     
     func detectOrientation() {
         
+        
         let swipeHandleGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
   
         if UIDevice.current.orientation.isLandscape {
@@ -65,6 +82,7 @@ class ViewController: UIViewController {
             buttonSwipe.setTitle("<", for: .normal)
             currentText.text = "Swipe left to share"
             swipeHandleGesture.direction = .left
+           
             view.addGestureRecognizer(swipeHandleGesture)
         }
         else {
@@ -83,13 +101,14 @@ class ViewController: UIViewController {
     }
     
     private func initLayoutsButtons() {
-        currentStackView.translatesAutoresizingMaskIntoConstraints = false
+        
         let layout1 = LayoutSelectionView()
         layout1.type = .type1
+    
+    
+        
         layout1.translatesAutoresizingMaskIntoConstraints = false
-        
-        layout1.heightAnchor.constraint(equalToConstant: self.view.frame.width * 3).isActive = true
-        
+
         currentStackView.addArrangedSubview(layout1)
         layout1.callback = { type in
             self.unSelectLayouts()
@@ -101,6 +120,8 @@ class ViewController: UIViewController {
         let layout2 = LayoutSelectionView()
         layout2.type = .type2
         layout2.translatesAutoresizingMaskIntoConstraints = false
+  
+        
         currentStackView.addArrangedSubview(layout2)
         layout2.callback = { type in
             self.unSelectLayouts()
@@ -181,15 +202,10 @@ extension UIView {
         let bounds = self.bounds
         
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, scale)
-        
         if let _ = UIGraphicsGetCurrentContext() {
-            
             self.drawHierarchy(in: bounds, afterScreenUpdates: true)
-            
             let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-            
             UIGraphicsEndImageContext()
-            
             return screenshot
         }
          return nil

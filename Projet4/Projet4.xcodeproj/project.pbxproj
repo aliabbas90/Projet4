@@ -14,7 +14,6 @@
 		B457F05229B0188E00CED7D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B457F05029B0188E00CED7D6 /* Main.storyboard */; };
 		B4689D5A29B2861200B2DD62 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4689D5829B2861200B2DD62 /* ThirstySoftRegular.otf */; };
 		B4689D5C29B2863400B2DD62 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4689D5B29B2863400B2DD62 /* Delm-Medium.otf */; };
-		B484206F29C1311200B55758 /* exports in Resources */ = {isa = PBXBuildFile; fileRef = B484206E29C1311200B55758 /* exports */; };
 		B491914929C1C95E00D21E49 /* LayoutSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B491914829C1C95D00D21E49 /* LayoutSelectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +26,6 @@
 		B457F05829B0189000CED7D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4689D5829B2861200B2DD62 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		B4689D5B29B2863400B2DD62 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
-		B484206E29C1311200B55758 /* exports */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = exports; path = Projet4/Data/exports; sourceTree = SOURCE_ROOT; };
 		B491914829C1C95D00D21E49 /* LayoutSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutSelectionView.swift; sourceTree = "<group>"; };
 		B4BE550429B9B76700533F3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +93,6 @@
 				B457F04A29B0188E00CED7D6 /* AppDelegate.swift */,
 				B4689D5B29B2863400B2DD62 /* Delm-Medium.otf */,
 				B4689D5829B2861200B2DD62 /* ThirstySoftRegular.otf */,
-				B484206E29C1311200B55758 /* exports */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -160,7 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B44A1AD829BA928000E1BA30 /* Assets.xcassets in Resources */,
-				B484206F29C1311200B55758 /* exports in Resources */,
 				B4689D5C29B2863400B2DD62 /* Delm-Medium.otf in Resources */,
 				B4689D5A29B2861200B2DD62 /* ThirstySoftRegular.otf in Resources */,
 				B457F05229B0188E00CED7D6 /* Main.storyboard in Resources */,
