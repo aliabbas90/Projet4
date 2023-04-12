@@ -15,10 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var currentText: UILabel!
-    
     @IBOutlet weak var allStackViewBtn: UIStackView!
     @IBOutlet weak var buttonSwipe: UIButton!
-    
     @IBOutlet var arrayButton: [UIButton]!
     @IBOutlet weak var stackViewButtonTop: UIStackView!
     @IBOutlet weak var stackViewButtonBottom: UIStackView!
@@ -36,7 +34,6 @@ class ViewController: UIViewController {
         photoLibrary.delegate = self
         photoLibrary.allowsEditing = false
 
-        
         present(photoLibrary, animated: true)
     }
     override func viewDidLoad() {
@@ -44,24 +41,17 @@ class ViewController: UIViewController {
         initLayoutsButtons()
         detectOrientation()
       
-        
     }
     
     @objc private func didSwipe() {
         
         let screenHeight = UIScreen.main.bounds.height
         let screenWidth = UIScreen.main.bounds.width
+        let directionTransform = UIDevice.current.orientation.isLandscape ? CGAffineTransform(translationX: -screenWidth, y: 0) : CGAffineTransform(translationX: 0, y: -screenHeight)
+        UIView.animate(withDuration: 2, animations: {
+            self.allStackViewBtn.transform = directionTransform
         
-        var translationTransformNeg = CGAffineTransform()
-        var translationTransformPos = CGAffineTransform()
-        
-    
-        
-        UIView.animate(withDuration: 0.5, animations: {
-         
-            self.allStackViewBtn.alpha = 0
-        })
-
+    })
         
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
@@ -69,11 +59,14 @@ class ViewController: UIViewController {
             guard let screenshotElement = self.view.screenshot() else { return }
             let activity = UIActivityViewController(activityItems: [screenshotElement], applicationActivities: nil)
             self.present(activity, animated: true, completion: nil)
-        
+            activity.completionWithItemsHandler = { activity, success, items, error in
+                
+                self.allStackViewBtn.transform = CGAffineTransform.identity
+                
+               }
     }
     
     func detectOrientation() {
-        
         
         let swipeHandleGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
   
@@ -92,8 +85,6 @@ class ViewController: UIViewController {
             view.addGestureRecognizer(swipeHandleGesture)
         }
 
-        
-
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -104,8 +95,6 @@ class ViewController: UIViewController {
         
         let layout1 = LayoutSelectionView()
         layout1.type = .type1
-    
-    
         
         layout1.translatesAutoresizingMaskIntoConstraints = false
 
