@@ -24,14 +24,7 @@ class LayoutSelectionView: UIView {
         }
     }
     
-    override var intrinsicContentSize: CGSize {
-        
-        let originalSize = super.intrinsicContentSize
-        
-        
-        return CGSize.init(width: 100, height: 100)
-    }
-    
+  
     private var button: UIButton!
     private var selectedImageView: UIImageView!
     var isSelected: Bool = false {
@@ -69,9 +62,10 @@ class LayoutSelectionView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         let originalImage = type.image.withRenderingMode(.alwaysOriginal)
         button.setImage(originalImage, for: .normal)
-        button.contentMode = .scaleAspectFit
 
-
+        button.contentHorizontalAlignment = .fill
+        button.contentVerticalAlignment = .fill
+        button.imageView?.contentMode = .scaleAspectFit
         
         self.addSubview(button)
   
@@ -80,9 +74,10 @@ class LayoutSelectionView: UIView {
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
             button.leadingAnchor.constraint(equalTo: leadingAnchor),
          button.trailingAnchor.constraint(equalTo: trailingAnchor),
-          button.heightAnchor.constraint(equalToConstant: 100),
-           button.widthAnchor.constraint(equalToConstant: 100)
+          button.heightAnchor.constraint(equalToConstant: 70),
+           button.widthAnchor.constraint(equalToConstant: 70)
         
+          
         ])
      
     

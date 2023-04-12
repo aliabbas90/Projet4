@@ -192,16 +192,20 @@
                                     </mask>
                                 </variation>
                             </button>
-                            <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" alignment="center" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jpi-py-b6g">
-                                <rect key="frame" x="64.666666666666686" y="763" width="301" height="100"/>
+                            <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Jpi-py-b6g">
+                                <rect key="frame" x="64" y="783" width="302" height="80"/>
                                 <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="95S-ko-YeW"/>
                                     <constraint firstAttribute="height" constant="302" id="f8g-o3-7c7"/>
+                                    <constraint firstAttribute="width" constant="302" id="nAv-x1-lk0"/>
                                     <constraint firstAttribute="width" constant="80" id="pw7-1E-tZJ"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="95S-ko-YeW"/>
                                         <exclude reference="f8g-o3-7c7"/>
+                                        <exclude reference="nAv-x1-lk0"/>
                                         <exclude reference="pw7-1E-tZJ"/>
                                     </mask>
                                 </variation>
@@ -209,6 +213,12 @@
                                     <mask key="constraints">
                                         <include reference="f8g-o3-7c7"/>
                                         <include reference="pw7-1E-tZJ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="95S-ko-YeW"/>
+                                        <include reference="nAv-x1-lk0"/>
                                     </mask>
                                 </variation>
                             </stackView>
