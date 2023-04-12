@@ -8,7 +8,7 @@
 import UIKit
 
 class LayoutSelectionView: UIView {
-        
+    
     var buttonPressed : Bool = false
     
     enum LayoutType {
@@ -24,7 +24,6 @@ class LayoutSelectionView: UIView {
         }
     }
     
-  
     private var button: UIButton!
     private var selectedImageView: UIImageView!
     var isSelected: Bool = false {
@@ -53,32 +52,28 @@ class LayoutSelectionView: UIView {
     
     private  func setUpView() {
         
-        
-        
-        
         button = UIButton(type: .custom)
         button.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(handleTapGesture), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         let originalImage = type.image.withRenderingMode(.alwaysOriginal)
         button.setImage(originalImage, for: .normal)
-
+        
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
         button.imageView?.contentMode = .scaleAspectFit
         
         self.addSubview(button)
-  
+        
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(equalTo: topAnchor),
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
-          button.heightAnchor.constraint(equalToConstant: 70),
-           button.widthAnchor.constraint(equalToConstant: 70)
-        
-          
+            button.heightAnchor.constraint(equalToConstant: 70),
+            button.widthAnchor.constraint(equalToConstant: 70)
+            
+            
         ])
-     
-    
+        
     }
     @objc func handleTapGesture(_ sender: UIButton){
         
@@ -113,7 +108,7 @@ class LayoutSelectionView: UIView {
         }
         selectedImageView.isHidden = !isSelected
     }
-
+    
 }
 
 extension UIImage {
@@ -123,6 +118,4 @@ extension UIImage {
         }
     }
 }
-
- 
 
