@@ -9,18 +9,17 @@ import UIKit
 
 class LayoutSelectionView: UIView {
     
+    // TODO: N'est pas utilisée
     var buttonPressed : Bool = false
     
     enum LayoutType {
         case type1, type2, type3
-        
         var image: UIImage {
             switch self {
             case .type1: return UIImage(named: "Layout1")!
             case .type2: return UIImage(named: "Layout2")!
             case .type3: return UIImage(named: "Layout3")!
             }
-            
         }
     }
     
@@ -31,10 +30,8 @@ class LayoutSelectionView: UIView {
             updateStatus()
         }
     }
-    
     var callback: ((LayoutType) -> Void)?
-    var type: LayoutType = .type1
-    {
+    var type: LayoutType = .type1  {
         didSet {
             button.setImage(type.image, for: .normal)
         }
@@ -43,7 +40,6 @@ class LayoutSelectionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,14 +47,13 @@ class LayoutSelectionView: UIView {
     }
     
     private  func setUpView() {
-        
         button = UIButton(type: .custom)
         button.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(handleTapGesture), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
         let originalImage = type.image.withRenderingMode(.alwaysOriginal)
         button.setImage(originalImage, for: .normal)
-        
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
         button.imageView?.contentMode = .scaleAspectFit
@@ -70,13 +65,12 @@ class LayoutSelectionView: UIView {
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
             button.heightAnchor.constraint(equalToConstant: 70),
             button.widthAnchor.constraint(equalToConstant: 70)
-            
-            
         ])
         
     }
+    
     @objc func handleTapGesture(_ sender: UIButton){
-        
+        // TODO: Il faut l'appeler autre chose que callback ;)
         callback?(type)
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
@@ -111,6 +105,7 @@ class LayoutSelectionView: UIView {
     
 }
 
+// TODO: Cette extension n'est pas utilisée
 extension UIImage {
     func resize(to newSize: CGSize) -> UIImage {
         return UIGraphicsImageRenderer(size: newSize).image { _ in

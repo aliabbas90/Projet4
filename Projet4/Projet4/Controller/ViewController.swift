@@ -39,19 +39,9 @@ class ViewController: UIViewController {
     var currentbutton: UIButton?
     var replaceSelectedImage = false
     var selectedImageView: UIImageView?
-    var buttonLayout1: UIButton?
     lazy var elements : [LayoutSelectionView] = []
     
-    // Appel de la fonction UIImagePickerController
-    @IBAction func imageBtnTapped(_ sender: UIButton) {
-        self.currentbutton = sender
-        let photoLibrary = UIImagePickerController()
-        photoLibrary.sourceType = .photoLibrary
-        photoLibrary.delegate = self
-        photoLibrary.allowsEditing = false
-        
-        present(photoLibrary, animated: true)
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initLayoutsButtons()
@@ -59,11 +49,22 @@ class ViewController: UIViewController {
         
     }
     
+    // TODO: Commentaires en anglais ==> Appel de la fonction UIImagePickerController
+    // TODO: Attention aux sauts de lignes excessifs.
+    @IBAction func imageBtnTapped(_ sender: UIButton) {
+        self.currentbutton = sender
+        let photoLibrary = UIImagePickerController()
+        photoLibrary.sourceType = .photoLibrary
+        photoLibrary.delegate = self
+        photoLibrary.allowsEditing = false
+        present(photoLibrary, animated: true)
+    }
+    
     @objc private func didSwipe() {
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
         generator.impactOccurred()
-        
+
         let screenHeight = UIScreen.main.bounds.height
         let screenWidth = UIScreen.main.bounds.width
         let directionTransform = UIDevice.current.orientation.isLandscape ? CGAffineTransform(translationX: -screenWidth, y: 0) : CGAffineTransform(translationX: 0, y: -screenHeight)
@@ -72,27 +73,20 @@ class ViewController: UIViewController {
             
         })
         
-        
-        guard let screenshotElement = self.view.screenshot() else { return }
+        guard let screenshotElement = self.currentView.screenshot() else { return }
         let activity = UIActivityViewController(activityItems: [screenshotElement], applicationActivities: nil)
         self.present(activity, animated: true, completion: nil)
         activity.completionWithItemsHandler = { activity, success, items, error in
-            
             self.allStackViewBtn.transform = CGAffineTransform.identity
-            
         }
     }
     
     func detectOrientation() {
-        
         let swipeHandleGesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
-        
         if UIDevice.current.orientation.isLandscape {
-            
             buttonSwipe.setTitle("<", for: .normal)
             currentText.text = "Swipe left to share"
             swipeHandleGesture.direction = .left
-            
             view.addGestureRecognizer(swipeHandleGesture)
         }
         else {
@@ -101,7 +95,6 @@ class ViewController: UIViewController {
             swipeHandleGesture.direction = .up
             view.addGestureRecognizer(swipeHandleGesture)
         }
-        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -109,12 +102,9 @@ class ViewController: UIViewController {
     }
     
     private func initLayoutsButtons() {
-        
         let layout1 = LayoutSelectionView()
         layout1.type = .type1
-        
         layout1.translatesAutoresizingMaskIntoConstraints = false
-        
         currentStackView.addArrangedSubview(layout1)
         layout1.callback = { type in
             self.unSelectLayouts()
@@ -126,19 +116,16 @@ class ViewController: UIViewController {
         let layout2 = LayoutSelectionView()
         layout2.type = .type2
         layout2.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         currentStackView.addArrangedSubview(layout2)
         layout2.callback = { type in
             self.unSelectLayouts()
             layout2.isSelected = true
             self.updateMainView(layout: type)
         }
-        
         elements.append(layout2)
+        
         let layout3 = LayoutSelectionView()
         layout3.type = .type3
-        
         currentStackView.addArrangedSubview(layout3)
         layout3.translatesAutoresizingMaskIntoConstraints = false
         layout3.callback = { type in
@@ -151,28 +138,22 @@ class ViewController: UIViewController {
         
     }
     func unSelectLayouts() {
-        
         elements.forEach { layout in
             layout.isSelected = false
-            
         }
     }
     
     private func updateMainView(layout: LayoutSelectionView.LayoutType) {
         switch layout {
-            
         case .type1:
             button1.isHidden = true
             button3.isHidden = false
-            
         case .type2:
             button1.isHidden = false
             button3.isHidden = true
-            
         case .type3:
             button3.isHidden = false
             button1.isHidden = false
-            
         }
     }
 }
@@ -187,26 +168,21 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 replaceSelectedImage = false
                 selectedImageView = nil
             } else {
-                
                 self.currentbutton?.setImage(image, for: .normal)
             }
             picker.dismiss(animated: true, completion: nil)
         }
+        
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             picker.dismiss(animated: true, completion: nil)
         }
-        
     }
 }
 
 extension UIView {
-    
     func screenshot() -> UIImage? {
-        
         let scale = UIScreen.main.scale
-        
         let bounds = self.bounds
-        
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, scale)
         if let _ = UIGraphicsGetCurrentContext() {
             self.drawHierarchy(in: bounds, afterScreenUpdates: true)
@@ -215,7 +191,6 @@ extension UIView {
             self.transform = CGAffineTransform.identity
             return screenshot
         }
-        
         return nil
     }
 }
